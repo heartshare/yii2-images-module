@@ -1,4 +1,4 @@
-= Yii2 Images = 
+# Yii2 Images #
 
 Модуль для управления картинками в Yii2. Позволяет привязывать картинку в виде связи к любой модели.
 
@@ -9,9 +9,9 @@
 - копия для отображения большой картинки;
 - копия для отображения иконки.
 
-== Подключение модуля ==
+## Подключение модуля ##
 
-~
+```
     'modules' => [
 		'images' => [
             'class' => 'common\modules\images\Module',
@@ -20,16 +20,16 @@
 			…
         ],
 	],
-~
+```
 
-== Константы ==
+## Константы ##
 
 - `const THUMB_NAME = '_thumb'` – суффикс для иконки;
 - `const PREVIEW_NAME = '_preview'` – суффикс для маленькой картинки
 - `const BIG_NAME = '_big'` - суффикс для большой картинки
 - `const ORIG_NAME = '_original'` - суффикс для оригинальной катринки
 
-== Параметры ==
+## Параметры ##
 
 - `public $i18n = []` – перевод. Можно задать свой с помощью `['basePath' => '<путь до файла перевода>',]`
 - `public $thumbWidth = 100` – ширина иконки
@@ -41,17 +41,17 @@
 - `public $uploadPath = false` – относительный путь до директории с файлами. По-умолчанию – `_images`, директория созадется в `/frontend/web` в случае advanced template или в `/web` в случае basic template
 - `public $absoluteUrl = false` – абсолютный URL до директории с картинками. Нужен, чтобы отображать картинки в backend в случае advanced template
 
-== Установить связь ==
+## Установить связь ##
 
-~
+```
 	public function getImage0() {
 		return $this->hasOne(\common\modules\images\models\Image::className(), ['id' => 'image']);
 	}
-~
+```
 
-== В контроллере при сохранении ==
+## В контроллере при сохранении ##
 
-~
+```
 	if ($model->load(Yii::$app->request->post())) {
 		$imageModel = new \common\modules\images\models\Image;
 		$imageModel->display_name = $model->name;
@@ -64,4 +64,4 @@
 			return $this->redirect(['view', 'id' => $model->id]);
 		else
 			return $this->render('create', ['model' => $model]);
-~
+```
