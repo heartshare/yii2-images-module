@@ -9,6 +9,10 @@
 - копия для отображения большой картинки;
 - копия для отображения иконки.
 
+## Зависимости ##
+- [Imagine](http://www.yiiframework.com/doc-2.0/ext-imagine-index.html)
+- [kartik-v/yii2-widgets](https://github.com/kartik-v/yii2-widgets)
+
 ## Подключение модуля ##
 
 ```
