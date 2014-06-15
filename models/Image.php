@@ -79,6 +79,10 @@ class Image extends \yii\db\ActiveRecord
         ];
     }
 	public function beforeValidate() {
+		/*
+		 * В следующих пяти строчках создается еще один элемент массива $_FILES, для того, чтобы модель забрала загруженный файл.
+		 * Возможно, нормальные люди так не делают, но как по-другому сделать, я не нашел.
+		 */
 		$postFiles = $_FILES;
 		foreach ($postFiles as $modelName => $fArr)
 			foreach ($fArr as $attrName => $attrArr)
