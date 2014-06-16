@@ -15,7 +15,7 @@
 
 ## Подключение модуля ##
 
-```
+```php
     'modules' => [
 		'images' => [
             'class' => 'common\modules\images\Module',
@@ -47,7 +47,7 @@
 
 ## Установить связь ##
 
-```
+```php
 	public function getImage0() {
 		return $this->hasOne(\common\modules\images\models\Image::className(), ['id' => 'image']);
 	}
@@ -55,7 +55,7 @@
 
 ## В контроллере при сохранении ##
 
-```
+```php
 	if ($model->load(Yii::$app->request->post())) {
 		$imageModel = new \common\modules\images\models\Image;
 		$imageModel->display_name = $model->name;
@@ -69,3 +69,14 @@
 		else
 			return $this->render('create', ['model' => $model]);
 ```
+
+## Функции модели (вывод картинок) ##
+
+- `getThumb` – иконка в тэге `img`
+- `getPreview` - превью-картинка в тэге `img`
+- `getBig` - большая картинка в тэге `img`
+- `getOriginal` - оригинал в тэге `img`
+- `getStringThumb` - ссылка на иконку
+- `getStringPreview` - ссылка на превью-картинку
+- `getStringBig` - ссылка на большую картинку
+- `getStringOriginal` - ссылка на оригинал
